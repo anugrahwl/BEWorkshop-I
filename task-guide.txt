@@ -1,0 +1,40 @@
+Task:
+1. Inisialisasi HAPI
+2. Buat Plugin satu endpoint
+3. Kembaliin Hello World JSON
+4. Register plugin 
+5. Init server
+
+const Hapi = require('@hapi/hapi');
+
+await server.register(plugins);
+
+[{
+  plugin: songs,
+  options: {},
+}]
+
+await server.start();
+console.log(`Server berjalan pada ${server.info.uri}`);
+
+const SongsHandler = require('./handler');
+const routes = require('./routes');
+
+module.exports = {
+  name: 'songs',
+  version: '1.0.0',
+  register: async (server, { service, validator }) => {
+    const songHandler = new SongsHandler(service, validator);
+    server.route(routes(songHandler));
+  },
+};
+
+const routes = (handler) => [
+  {
+    method: 'POST',
+    path: '/songs',
+    handler: handler.postSongHandler,
+  },
+];
+
+module.exports = routes;
