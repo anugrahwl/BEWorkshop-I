@@ -1,3 +1,42 @@
+misc:
+- cp -r *.js ../company/
+- curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:3000/data
+
+curl -d '{"name":"asep", "job":"engineer"}' -H "Content-Type: application/json" -X POST https://BEWorkshop-I.2083anugrahwamo.repl.co/person
+
+curl -d '{"name":"as", "job":"engineer"}' -H "Content-Type: application/json" -X POST https://BEWorkshop-I.2083anugrahwamo.repl.co/person
+
+curl -H "Content-Type: application/json" -X GET https://BEWorkshop-I.2083anugrahwamo.repl.co/person
+
+
+{
+  "status":"success",
+  "data":[
+   {"name":"asep","job":"engineer"},
+   {"name":"asep","job":"engineer"},
+   {"name":"asep","job":"engineer"},
+   {"name":"asep","job":"engineer"}
+ ]
+}
+
+Day 2:
+Pertahanin si plugin hello, skrg maneh tambahin klasik yaitu plugin person sm plugin company bos
+
+Masing masing dua endpoint, yaitu cm Get (get all) sm post (create)
+
+Masalah atribut apa d
+Mantap
+
+Note: karena udh nyimpen data, dan mulai ngirim data
+Berarti terapin simple aja:
+1. Service (like cm dia yg bs nge dot ke array)
+2. Validator (simple kek if else simple, ga pake library)
+3. Cara parsing dr req body
+4. Cara inject service dan validator ke plugin
+
+====================================================================================
+
+Day 1:
 Task:
 1. Inisialisasi HAPI
 2. Buat Plugin satu endpoint
